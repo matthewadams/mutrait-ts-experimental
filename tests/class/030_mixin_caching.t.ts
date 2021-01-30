@@ -1,5 +1,4 @@
-import { Base } from "../../src/class/Base.js"
-import { AnyConstructor, ClassUnion, Mixin, ZeroBaseClass } from "../../src/class/Mixin.js"
+import { Base, AnyConstructor, ClassUnion, Mixin, ZeroBaseClass } from "../../src/mixin"
 
 declare const StartTest : any
 
