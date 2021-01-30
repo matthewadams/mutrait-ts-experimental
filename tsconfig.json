@@ -2,7 +2,8 @@
   "extends": "@tsconfig/node10/tsconfig.json",
   "compilerOptions": {
     "importHelpers": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "sourceMap": true
   },
   "include": [
     "src/**/*.ts",
