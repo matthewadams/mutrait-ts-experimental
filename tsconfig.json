@@ -2,13 +2,7 @@
   "extends": "@tsconfig/node10/tsconfig.json",
   "compilerOptions": {
     "importHelpers": true,
-    "experimentalDecorators": true,
-    "target": "ES2017",
-    "lib": [
-      "esnext"
-    ],
-    "module": "ESNext",
-    "moduleResolution": "Node"
+    "experimentalDecorators": true
   },
   "include": [
     "src/**/*.ts",
