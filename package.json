@@ -15,6 +15,7 @@
     "tslib": "1.9.3"
   },
   "devDependencies": {
+    "@tsconfig/node14": "1.0.0",
     "@types/node": "12.7.2",
     "core-js": "2.6.5",
     "deoptigate": "0.5.0",

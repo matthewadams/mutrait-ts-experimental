@@ -1,24 +1,16 @@
 {
-    "compilerOptions" : {
-//        "importHelpers"             : true,
-        "experimentalDecorators"    : true,
-
-        "target"                : "ES2017",
-
-        "sourceMap"             : false,
-        "lib"                   : [
-            "esnext"
-        ],
-        "module"                : "ESNext",
-        "moduleResolution"      : "Node"
-    },
-
-    "include" : [
-        "main.ts",
-        "src/**/*.ts",
-        "tests/**/*.ts"
+  "compilerOptions": {
+    "importHelpers": true,
+    "experimentalDecorators": true,
+    "target": "ES2017",
+    "lib": [
+      "esnext"
     ],
-
-    "exclude" : [
-    ]
+    "module": "ESNext",
+    "moduleResolution": "Node"
+  },
+  "include": [
+    "src/**/*.ts",
+    "tests/**/*.ts"
+  ]
 }

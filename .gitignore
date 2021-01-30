@@ -403,3 +403,4 @@ release*
 docs/
 dist/
 **/*.js
+**/*.js.map
