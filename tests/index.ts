@@ -1,132 +1,115 @@
-declare let Siesta : any
+declare let Siesta: any
 
-let project : any
+let project: any
 
 if (typeof process !== 'undefined' && typeof require !== 'undefined') {
-    Siesta          = require('siesta-lite')
+  Siesta = require('siesta-lite')
 
-    project         = new Siesta.Project.NodeJS()
+  project = new Siesta.Project.NodeJS()
 } else {
-    project         = new Siesta.Project.Browser()
+  project = new Siesta.Project.Browser()
 }
 
 project.configure({
-    title                   : 'ChronoGraph Test Suite',
-    isEcmaModule            : true
+  title: 'ChronoGraph Test Suite',
+  isEcmaModule: true
 })
 
-
 project.start(
-    {
-        group       : 'Class',
+  {
+    group: 'Class',
 
-        items       : [
-            'class/020_mixin.t.js',
-            'class/030_mixin_caching.t.js'
-        ]
-    },
-    {
-        group       : 'Iterator',
+    items: ['class/020_mixin.t.js', 'class/030_mixin_caching.t.js']
+  },
+  {
+    group: 'Iterator',
 
-        items       : [
-            'collection/010_chained_iterator.t.js',
-        ]
-    },
-    {
-        group       : 'Graph',
+    items: ['collection/010_chained_iterator.t.js']
+  },
+  {
+    group: 'Graph',
 
-        items       : [
-            'graph/010_walkable.t.js',
-            'graph/020_node.t.js',
-            'graph/030_cycle.t.js'
-        ]
-    },
-    {
-        group       : 'ChronoGraph',
+    items: ['graph/010_walkable.t.js', 'graph/020_node.t.js', 'graph/030_cycle.t.js']
+  },
+  {
+    group: 'ChronoGraph',
 
-        items       : [
-            'chrono/010_identifier_variable.t.js',
-            'chrono/011_lazy_identifier.t.js',
-            'chrono/012_impure_calculated_value.t.js',
-            'chrono/013_sync_calculation.t.js',
-            'chrono/013_async_calculation.t.js',
-            'chrono/015_listeners.t.js',
-            'chrono/016_recursion.t.js',
-            'chrono/017_identifier_listener.t.js',
-            'chrono/020_graph_branching.t.js',
-            'chrono/030_propagation.t.js',
-            'chrono/030_propagation_2.t.js',
-            'chrono/030_transaction_reject.t.js',
-            'chrono/030_iteration.t.js',
-            'chrono/031_garbage_collection.t.js',
-            'chrono/032_propagation_options.t.js',
-            'chrono/032_commit_async.t.js',
-            'chrono/033_cycle_info.t.js',
-            'chrono/040_add_remove.t.js',
-            'chrono/050_undo_redo.t.js',
-        ]
-    },
-    {
-        group       : 'Cycle resolver',
+    items: [
+      'chrono/010_identifier_variable.t.js',
+      'chrono/011_lazy_identifier.t.js',
+      'chrono/012_impure_calculated_value.t.js',
+      'chrono/013_sync_calculation.t.js',
+      'chrono/013_async_calculation.t.js',
+      'chrono/015_listeners.t.js',
+      'chrono/016_recursion.t.js',
+      'chrono/017_identifier_listener.t.js',
+      'chrono/020_graph_branching.t.js',
+      'chrono/030_propagation.t.js',
+      'chrono/030_propagation_2.t.js',
+      'chrono/030_transaction_reject.t.js',
+      'chrono/030_iteration.t.js',
+      'chrono/031_garbage_collection.t.js',
+      'chrono/032_propagation_options.t.js',
+      'chrono/032_commit_async.t.js',
+      'chrono/033_cycle_info.t.js',
+      'chrono/040_add_remove.t.js',
+      'chrono/050_undo_redo.t.js'
+    ]
+  },
+  {
+    group: 'Cycle resolver',
 
-        items       : [
-            'cycle_resolver/010_memoizing.t.js',
-            'cycle_resolver/020_sed.t.js',
-            'cycle_resolver/030_sedwu_fixed_duration.t.js',
-            'cycle_resolver/040_sedwu_fixed_duration_effort_driven.t.js',
-            'cycle_resolver/050_sedwu_fixed_effort.t.js',
-            'cycle_resolver/060_sedwu_fixed_units.t.js',
-        ]
-    },
-    {
-        group       : 'chrono-userland',
+    items: [
+      'cycle_resolver/010_memoizing.t.js',
+      'cycle_resolver/020_sed.t.js',
+      'cycle_resolver/030_sedwu_fixed_duration.t.js',
+      'cycle_resolver/040_sedwu_fixed_duration_effort_driven.t.js',
+      'cycle_resolver/050_sedwu_fixed_effort.t.js',
+      'cycle_resolver/060_sedwu_fixed_units.t.js'
+    ]
+  },
+  {
+    group: 'chrono-userland',
 
-        items       : [
-        ]
-    },
-    {
-        group       : 'Replica',
+    items: []
+  },
+  {
+    group: 'Replica',
 
-        items       : [
-            'replica/001_entity.t.js',
-            'replica/002_fields.t.js',
-            'replica/010_replica.t.js',
-            'replica/020_reference.t.js',
-            'replica/025_tree_node.t.js',
-            'replica/030_cycle_dispatcher_example.t.js',
-            'replica/033_cycle_info.t.js',
-            'replica/040_calculate_only.t.js'
-        ]
-    },
-    {
-        group       : 'Schema',
+    items: [
+      'replica/001_entity.t.js',
+      'replica/002_fields.t.js',
+      'replica/010_replica.t.js',
+      'replica/020_reference.t.js',
+      'replica/025_tree_node.t.js',
+      'replica/030_cycle_dispatcher_example.t.js',
+      'replica/033_cycle_info.t.js',
+      'replica/040_calculate_only.t.js'
+    ]
+  },
+  {
+    group: 'Schema',
 
-        items       : [
-            'schema/010_schema.t.js',
-        ]
-    },
-    {
-        group       : 'Visualization',
+    items: ['schema/010_schema.t.js']
+  },
+  {
+    group: 'Visualization',
 
-        items       : [
-            // {
-            //     pageUrl     : 'pages/cytoscape.html',
-            //     url         : 'visualization/010_replica.t.js'
-            // }
-        ]
-    },
-    {
-        group       : 'Util',
+    items: [
+      // {
+      //     pageUrl     : 'pages/cytoscape.html',
+      //     url         : 'visualization/010_replica.t.js'
+      // }
+    ]
+  },
+  {
+    group: 'Util',
 
-        items       : [
-            'util/uniqable.t.js'
-        ]
-    },
-    {
-        group       : 'Events',
+    items: ['util/uniqable.t.js']
+  },
+  {
+    group: 'Events',
 
-        items       : [
-            'event/events.t.js'
-        ]
-    }
+    items: ['event/events.t.js']
+  }
 )

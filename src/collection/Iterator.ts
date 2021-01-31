@@ -40,11 +40,11 @@ export function split<Element>(iterable: Iterable<Element>): [Iterable<Element>,
 
       if (!iterator) break
 
-      const {value, done} = iterator.next()
+      const { value, done } = iterator.next()
 
       if (done) {
-        iterator = null;
-        iterable = null;
+        iterator = null
+        iterable = null
         break
       }
 
@@ -65,11 +65,11 @@ export function split<Element>(iterable: Iterable<Element>): [Iterable<Element>,
 
       if (!iterator) break
 
-      const {value, done} = iterator.next()
+      const { value, done } = iterator.next()
 
       if (done) {
-        iterator = null;
-        iterable = null;
+        iterator = null
+        iterable = null
         break
       }
 
@@ -82,10 +82,9 @@ export function split<Element>(iterable: Iterable<Element>): [Iterable<Element>,
   return [gen1(), gen2()]
 }
 
-
 //---------------------------------------------------------------------------------------------------------------------
 export function* inBatchesBySize<Element>(iterator: Iterable<Element>, batchSize: number): Iterable<Element[]> {
-  if (batchSize < 0) throw new Error("Batch size needs to a natural number")
+  if (batchSize < 0) throw new Error('Batch size needs to a natural number')
   batchSize = batchSize | 0
 
   const runningBatch: Element[] = []
@@ -103,7 +102,6 @@ export function* inBatchesBySize<Element>(iterator: Iterable<Element>, batchSize
   if (runningBatch.length > 0) yield runningBatch
 }
 
-
 //---------------------------------------------------------------------------------------------------------------------
 export function* filter<Element>(iterator: Iterable<Element>, func: (el: Element, index: number) => boolean): Iterable<Element> {
   let i = 0
@@ -113,7 +111,6 @@ export function* filter<Element>(iterator: Iterable<Element>, func: (el: Element
   }
 }
 
-
 //---------------------------------------------------------------------------------------------------------------------
 export function* drop<Element>(iterator: Iterable<Element>, howMany: number): Iterable<Element> {
   let i = 0
@@ -122,7 +119,6 @@ export function* drop<Element>(iterator: Iterable<Element>, howMany: number): It
     if (++i > howMany) yield el
   }
 }
-
 
 //---------------------------------------------------------------------------------------------------------------------
 export function every<Element>(iterator: Iterable<Element>, func: (el: Element, index: number) => boolean): boolean {
@@ -135,7 +131,6 @@ export function every<Element>(iterator: Iterable<Element>, func: (el: Element, 
   return true
 }
 
-
 //---------------------------------------------------------------------------------------------------------------------
 export function some<Element>(iterator: Iterable<Element>, func: (el: Element, index: number) => boolean): boolean {
   let i = 0
@@ -147,7 +142,6 @@ export function some<Element>(iterator: Iterable<Element>, func: (el: Element, i
   return false
 }
 
-
 //---------------------------------------------------------------------------------------------------------------------
 export function* map<Element, Result>(iterator: Iterable<Element>, func: (el: Element, index: number) => Result): Iterable<Result> {
   let i = 0
@@ -155,9 +149,12 @@ export function* map<Element, Result>(iterator: Iterable<Element>, func: (el: El
   for (const el of iterator) yield func(el, i++)
 }
 
-
 //---------------------------------------------------------------------------------------------------------------------
-export function reduce<Element, Result>(iterator: Iterable<Element>, func: (acc: Result, el: Element, index: number) => Result, initialAcc: Result): Result {
+export function reduce<Element, Result>(
+  iterator: Iterable<Element>,
+  func: (acc: Result, el: Element, index: number) => Result,
+  initialAcc: Result
+): Result {
   let i = 0
 
   let acc: Result = initialAcc
@@ -168,7 +165,6 @@ export function reduce<Element, Result>(iterator: Iterable<Element>, func: (acc:
 
   return acc
 }
-
 
 //---------------------------------------------------------------------------------------------------------------------
 export function* uniqueOnly<Element>(iterator: Iterable<Element>): Iterable<Element> {
@@ -182,7 +178,6 @@ export function* uniqueOnly<Element>(iterator: Iterable<Element>): Iterable<Elem
     }
   }
 }
-
 
 //---------------------------------------------------------------------------------------------------------------------
 export function* uniqueOnlyBy<Element, UniqueBy>(iterator: Iterable<Element>, func: (el: Element) => UniqueBy): Iterable<Element> {
@@ -199,7 +194,6 @@ export function* uniqueOnlyBy<Element, UniqueBy>(iterator: Iterable<Element>, fu
   }
 }
 
-
 //---------------------------------------------------------------------------------------------------------------------
 export function* reverse<Element>(iterator: Iterable<Element>): Iterable<Element> {
   const all = Array.from(iterator)
@@ -207,22 +201,21 @@ export function* reverse<Element>(iterator: Iterable<Element>): Iterable<Element
   for (let i = all.length - 1; i >= 0; i--) yield all[i]
 }
 
-
 //---------------------------------------------------------------------------------------------------------------------
 export function* takeWhile<Element>(iterator: Iterable<Element>, func: (el: Element, index: number) => boolean): Iterable<Element> {
   let i = 0
 
   for (const el of iterator) {
-    if (func(el, i++))
-      yield el
-    else
-      return
+    if (func(el, i++)) yield el
+    else return
   }
 }
 
-
 //---------------------------------------------------------------------------------------------------------------------
-export function* takeUntilIncluding<Element>(iterator: Iterable<Element>, func: (el: Element, index: number) => boolean): Iterable<Element> {
+export function* takeUntilIncluding<Element>(
+  iterator: Iterable<Element>,
+  func: (el: Element, index: number) => boolean
+): Iterable<Element> {
   let i = 0
 
   for (const el of iterator) {
@@ -232,9 +225,11 @@ export function* takeUntilIncluding<Element>(iterator: Iterable<Element>, func: 
   }
 }
 
-
 //---------------------------------------------------------------------------------------------------------------------
-export function* takeUntilExcluding<Element>(iterator: Iterable<Element>, func: (el: Element, index: number) => boolean): Iterable<Element> {
+export function* takeUntilExcluding<Element>(
+  iterator: Iterable<Element>,
+  func: (el: Element, index: number) => boolean
+): Iterable<Element> {
   let i = 0
 
   for (const el of iterator) {
@@ -243,19 +238,16 @@ export function* takeUntilExcluding<Element>(iterator: Iterable<Element>, func: 
     yield el
   }
 }
-
 
 //---------------------------------------------------------------------------------------------------------------------
 export function* concat<Element>(...iterators: Iterable<Element>[]): Iterable<Element> {
   for (let i = 0; i < iterators.length; i++) yield* iterators[i]
 }
 
-
 //---------------------------------------------------------------------------------------------------------------------
 export function* concatIterable<Element>(iteratorsProducer: Iterable<Iterable<Element>>): Iterable<Element> {
   for (const iterator of iteratorsProducer) yield* iterator
 }
-
 
 //---------------------------------------------------------------------------------------------------------------------
 // just a chained syntax sugar class
@@ -265,20 +257,17 @@ export function* concatIterable<Element>(iteratorsProducer: Iterable<Iterable<El
 export class ChainedIteratorClass<T> {
   iterable: Iterable<T> = undefined
 
-
   constructor(iterable: Iterable<T>) {
-    if (!iterable) throw new Error("Require an iterable instance for chaining")
+    if (!iterable) throw new Error('Require an iterable instance for chaining')
 
     this.iterable = iterable
   }
-
 
   derive<K>(iterable: Iterable<K>): ChainedIteratorClass<K> {
     this.iterable = undefined
 
     return new ChainedIteratorClass(iterable)
   }
-
 
   copy(): ChainedIteratorClass<T> {
     const [iter1, iter2] = split(this.iterable)
@@ -288,74 +277,62 @@ export class ChainedIteratorClass<T> {
     return new ChainedIteratorClass(iter1)
   }
 
-
   split(): [ChainedIteratorClass<T>, ChainedIteratorClass<T>] {
     const [iter1, iter2] = split(this.iterable)
 
     return [new ChainedIteratorClass(iter1), this.derive(iter2)]
   }
 
-
   inBatchesBySize(batchSize: number): ChainedIteratorClass<T[]> {
     return this.derive(inBatchesBySize(this.iterable, batchSize))
   }
-
 
   filter(func: (el: T, index: number) => boolean): ChainedIteratorClass<T> {
     return this.derive(filter(this.iterable, func))
   }
 
-
   drop(howMany: number): ChainedIteratorClass<T> {
     return this.derive(drop(this.iterable, howMany))
   }
-
 
   map<Result>(func: (el: T, index: number) => Result): ChainedIteratorClass<Result> {
     return this.derive(map(this.iterable, func))
   }
 
-
   reduce<Result>(func: (acc: Result, el: T, index: number) => Result, initialAcc: Result): Result {
     return reduce(this, func, initialAcc)
   }
 
-
   concat(): T extends Iterable<infer K> ? ChainedIteratorClass<K> : never {
-    //@ts-ignore
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     return this.derive(concatIterable(this.iterable))
   }
-
 
   uniqueOnly(): ChainedIteratorClass<T> {
     return this.derive(uniqueOnly(this.iterable))
   }
 
-
   uniqueOnlyBy<UniqueBy>(func: (el: T) => UniqueBy): ChainedIteratorClass<T> {
     return this.derive(uniqueOnlyBy(this.iterable, func))
   }
-
 
   every(func: (el: T, index: number) => boolean): boolean {
     return every(this, func)
   }
 
-
   some(func: (el: T, index: number) => boolean): boolean {
     return some(this, func)
   }
-
 
   takeWhile(func: (el: T, index: number) => boolean): ChainedIteratorClass<T> {
     return this.derive(takeWhile(this.iterable, func))
   }
 
-
-  * [Symbol.iterator](): IterableIterator<T> {
+  *[Symbol.iterator](): IterableIterator<T> {
     let iterable = this.iterable
 
-    if (!iterable) throw new Error("Chained iterator already exhausted or used to derive the new one")
+    if (!iterable) throw new Error('Chained iterator already exhausted or used to derive the new one')
 
     // practice shows, that cleaning up the iterable after yourself helps garbage collector a lot
     this.iterable = undefined
@@ -366,24 +343,21 @@ export class ChainedIteratorClass<T> {
     iterable = undefined
   }
 
-
   toArray(): T[] {
     return Array.from(this)
   }
-
 
   sort(order: (v1: T, v2: T) => number): T[] {
     return Array.from(this).sort(order)
   }
 
-
   toSet(): Set<T> {
     return new Set(this)
   }
 
-
   toMap(): T extends [infer K, infer V] ? Map<K, V> : never {
-    //@ts-ignore
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     return new Map(this)
   }
 
@@ -391,12 +365,10 @@ export class ChainedIteratorClass<T> {
   //     return new Map<K, V>(this.iterable as (T extends [ K, V ] ? Iterable<T> : never)) as (T extends [ K, V ] ? Map<K, V> : never)
   // }
 
-
   flush() {
     for (const element of this) {
     }
   }
-
 
   memoize(): MemoizedIteratorClass<T> {
     return new MemoizedIteratorClass(this)
@@ -407,7 +379,6 @@ export const ChainedIterator = <T>(iterator: Iterable<T>): ChainedIteratorClass<
 export const CI = ChainedIterator
 
 export type ChainedIterator<T> = ChainedIteratorClass<T>
-
 
 //---------------------------------------------------------------------------------------------------------------------
 export class MemoizedIteratorClass<T> extends ChainedIteratorClass<T> {
@@ -428,8 +399,7 @@ export class MemoizedIteratorClass<T> extends ChainedIteratorClass<T> {
     return new ChainedIteratorClass(iterable)
   }
 
-
-  * [Symbol.iterator](): IterableIterator<T> {
+  *[Symbol.iterator](): IterableIterator<T> {
     const elements = this.elements
 
     if (this.$iterable) {
@@ -451,7 +421,7 @@ export class MemoizedIteratorClass<T> extends ChainedIteratorClass<T> {
 
         if (!iterator) break
 
-        const {value, done} = iterator.next()
+        const { value, done } = iterator.next()
 
         if (done) {
           iterator = this.$iterator = null

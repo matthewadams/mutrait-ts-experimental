@@ -4,7 +4,6 @@
  * [[Mixin|mixins]], as mixins can not have types in the constructors.
  */
 export class Base {
-
   /**
    * This is a type-safe static constructor method, accepting a single argument, with the object, corresponding to the
    * class properties. It will generate a compilation error, if unknown property is provided.
@@ -50,6 +49,3 @@ export class Base {
     props && Object.assign(this, props)
   }
 }
-
-
-
