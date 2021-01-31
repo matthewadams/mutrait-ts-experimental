@@ -6,18 +6,6 @@
 export class Base {
 
   /**
-   * This method applies its 1st argument (if any) to the current instance using `Object.assign()`.
-   *
-   * Supposed to be overridden in the subclasses to customize the instance creation process.
-   *
-   * @param props
-   */
-  initialize<T extends Base>(props?: Partial<T>) {
-    props && Object.assign(this, props)
-  }
-
-
-  /**
    * This is a type-safe static constructor method, accepting a single argument, with the object, corresponding to the
    * class properties. It will generate a compilation error, if unknown property is provided.
    *
@@ -49,6 +37,17 @@ export class Base {
     instance.initialize<InstanceType<T>>(props)
 
     return instance as InstanceType<T>
+  }
+
+  /**
+   * This method applies its 1st argument (if any) to the current instance using `Object.assign()`.
+   *
+   * Supposed to be overridden in the subclasses to customize the instance creation process.
+   *
+   * @param props
+   */
+  initialize<T extends Base>(props?: Partial<T>) {
+    props && Object.assign(this, props)
   }
 }
 

@@ -1,2 +1,2 @@
 export * from "./Mixin.js"
-export { Base } from "./Base.js"
+export {Base} from "./Base.js"
