@@ -22,16 +22,17 @@ This project is an attempt to describe traits in a manner compatible with TypeSc
 
 Ordering by most recent first, this is some of the prior art we're working with.
 
-### chronograph 
+### chronograph
 This project is inspired in part by [@northscaler/mutrait](https://www.npmjs.com/package/@northscaler/mutrait) and by part of [Bryntam's `chronograph` project](https://github.com/bryntum/chronograph), in particular, the mixin capabilities provided by the code [here](https://github.com/bryntum/chronograph/tree/master/src/class).
 We are trying to collaborate with [the author](https://dev.to/chronograph/).
 
-### https://github.com/matthewadams/typescript-trait-test
+### typescript-trait-test
 
-A currently broken (as of this writing) & as-simple-as-possible-but-no-simpler attempt at traits in TypeScript by [the same author](http://matthewadams.me) is this repo.
+https://github.com/matthewadams/typescript-trait-test is a different attempt at this.
+It is currently broken (as of this writing) & as-simple-as-possible-but-no-simpler attempt at traits in TypeScript by [the same author](http://matthewadams.me) as this repo.
 
 ### @northscaler/mutrait
 
 The production-quality trait library for JavaScript (currently maintained & supported version).
-This package is based on its predecessor, [mutrait](https://www.npmjs.com/package/mutrait) (last published a year ago).
-This package is, in turn, based on _its_ predecessor, [mixwith](https://www.npmjs.com/package/mixwith) (last published 5 years ago).
+This package is based on its predecessor, [mutrait](https://www.npmjs.com/package/mutrait) (last repo activity 2019-12 as of 2021-02).
+This package is, in turn, based on _its_ predecessor, [mixwith](https://www.npmjs.com/package/mixwith) (last activity 2016-09 as of 2021-02).
